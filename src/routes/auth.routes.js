@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
+import { crearUsuario } from "../controllers/auth.controller.js";
 
 const router = Router();
 
@@ -11,9 +12,9 @@ router.post('/new',[
 ], crearUsuario);
 
 //Login usuario
-router.post('/', [
-  check('email','el email es obligatorio').isEmail(),
-  check('password','la contraseña debe ser de 6 caracteres minimo').isLength({min:6})
-],loginUsuario);
+// router.post('/', [
+//   check('email','el email es obligatorio').isEmail(),
+//   check('password','la contraseña debe ser de 6 caracteres minimo').isLength({min:6})
+// ],loginUsuario);
 
 export default router;
