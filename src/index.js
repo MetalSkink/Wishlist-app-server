@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { dbConnection } from './db/config.js';
 import authRoutes from './routes/auth.routes.js'
+import wishlistRoutes from './routes/wishlist.routes.js'
 import * as dotenv from 'dotenv';
 dotenv.config()
 
@@ -16,7 +17,8 @@ app.use(cors());
 //Lectura y parseo del body
 app.use(express.json());
 
-app.use('/auth', authRoutes)
+app.use('/auth', authRoutes);
+app.use('/wishlist', wishlistRoutes);
 
 app.listen(process.env.PORT, ()=>{
   console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
